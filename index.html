@@ -1,0 +1,96 @@
+
+<!-- saved from url=(0029)https://masterweaver.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>MasterWeaver</title>
+<link href="assets/style.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.mlens-1.0.min.js"></script><style type="text/css" abt="234"></style>
+<script type="text/javascript" src="js/jquery.js.download"></script>
+<script>//remove baidu search ad
+var _countAA = 0
+function doBBBd(){}
+doBBBd()
+document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
+document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
+
+</script></head>
+
+<body>
+<div class="content">
+  <h1><strong>MasterWeaver: Taming Editability and Identity for Personalized Text-to-Image Generation</strong></h1>
+  <p id="authors"><a href="https://scholar.google.com/citations?user=hORhL7YAAAAJ">Yuxiang Wei</a><sup>1,2</sup> <a href="">Zhilong Ji</a><sup>3</sup> <a href="">Jinfeng Bai</a><sup>3</sup> <a href="http://homepage.hit.edu.cn/zhanghz">Hongzhi Zhang</a><sup>1</sup> <a href="https://www4.comp.polyu.edu.hk/~cslzhang/">Lei Zhang</a><sup>2</sup> <a href="http://homepage.hit.edu.cn/wangmengzuo">Wangmeng Zuo</a><sup>1,4</sup><br>
+    <br>
+  <span style="font-size: 16px"><sup>1</sup>Harbin Institute of Technology &nbsp;&nbsp;&nbsp;&nbsp; <sup>2</sup>The Hong Kong Polytechnic University &nbsp;&nbsp;&nbsp; <sup>3</sup>Tomorrow Advancing Life &nbsp;&nbsp;&nbsp;&nbsp; <sup>4</sup>Peng Cheng Lab
+  </span></p>
+  <br>
+  <img src="./assets/images/teaser.jpg" class="teaser-gif" style="width:90%;"><br>
+  <h3 style="text-align:center"><em>With one single reference image, our MasterWeaver can generate photo-realistic personalized images with diverse clothing, accessories, facial attributes and actions in various contexts.</em></h3>
+    <font size="+2">
+          <p style="text-align: center;">
+            <a href="https://arxiv.org/abs/xxxx" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="https://github.com/csyxwei/MasterWeaver" target="_blank">[Code]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="xxx" target="_blank">[BibTeX]</a>
+          </p>
+    </font>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p>
+    Text-to-image (T2I) diffusion models have shown significant success in personalized text-to-image generation, which aims to generate novel images with human identities indicated by the reference images. Despite promising identity fidelity has been achieved by several tuning-free methods, they usually suffer from overfitting issues. The learned identity tends to entangle with irrelevant information, resulting in unsatisfied text controllability, especially on faces. In this work, we present MasterWeaver, a test-time tuning-free method designed to generate personalized images with both faithful identity fidelity and flexible editability. Specifically, MasterWeaver adopts an encoder to extract identity features and steers the image generation through additional introduced cross attention. To improve editability while maintaining identity fidelity, we propose an editing direction loss for training, which aligns the editing directions of our MasterWeaver with those of the original T2I model. Additionally, a face-augmented dataset is constructed to facilitate disentangled identity learning, and further improve the editability. Extensive experiments demonstrate that our MasterWeaver can not only generate personalized images with faithful identity, but also exhibit superiority in text controllability.
+  </p>
+</div>
+
+<div class="content">
+  <h2 style="text-align:center;">Method</h2>
+  <p>
+    <em>(a) Training pipeline of our MasterWeaver.</em> To improve the editability while maintaining identity fidelity, we propose an editing direction loss for training. Additionally, we construct a face-augmented dataset to facilitate disentangled identity learning, further improving editability. <em>(b) Framework of our MasterWeaver.</em> It adopts an encoder to extract identity features and employ it with text to steer personalized image generation through cross attention.
+  </p>
+  <br>
+  <img class="summary-img" src="assets/images/method.jpg" style="width:90%;"> <br>
+  <p>
+    By inputting paired text prompts that denote an editing operation, e.g., (a photo of a woman, a photo of a smiling woman), we identify the editing direction in the feature space of diffusion model. Then we align the editing direction of our MasterWeaver with that of original T2I model to improve the text controllability without affecting the identity.
+  </p>
+  <br>
+  <img class="summary-img" src="assets/images/editing_loss.jpg" style="width:90%;"> <br>
+</div>
+<div class="content">
+  <h2>Comparison with Existing Methods</h2>
+  <p>
+    With one single reference image shown on the left, our MasterWeaver can generate high-quality images with flexible editability and faithful identity.</p>
+<img class="summary-img" src="assets/images/results.jpg" style="width:90%;">
+</div>
+<div class="content">
+  <h2>More Results</h2>
+  <p style="font-size: 22px"><strong>Action & Background Generation</strong></p>
+  <br>
+  <img class="summary-img" src="assets/images/action_editing.jpg" style="width:90%;"> <br>
+  <p style="font-size: 22px"><strong>Stylization</strong></p>
+  <br>
+  <img class="summary-img" src="assets/images/style_editing.jpg" style="width:90%;"> <br>
+  <p style="font-size: 22px"><strong>Attribute Editing</strong></p>
+  <br>
+  <img class="summary-img" src="assets/images/attribute_editing.jpg" style="width:90%;"> <br>
+  <p style="font-size: 22px"><strong>Accessorization</strong></p>
+  <br>
+  <img class="summary-img" src="assets/images/clothes_editing.jpg" style="width:90%;"> <br>
+  <p style="font-size: 22px"><strong>Apply to Custom Models</strong></p>
+  <br>
+  <img class="summary-img" src="assets/images/application.jpg" style="width:90%;"> <br>
+</div>
+
+<div class="content">
+  <h2>BibTex</h2>
+<!--  <code> @article{wei2024masterweaver,<br>-->
+<!--  &nbsp;&nbsp;title={DreamBooth: Fine Tuning Text-to-image Diffusion Models for Subject-Driven Generation},<br>-->
+<!--  &nbsp;&nbsp;author={Ruiz, Nataniel and Li, Yuanzhen and Jampani, Varun and Pritch, Yael and Rubinstein, Michael and Aberman, Kfir},<br>-->
+<!--  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2208.12242},<br>-->
+<!--  &nbsp;&nbsp;year={2022}<br>-->
+<!--  } </code> -->
+</div>
+<div class="content" id="acknowledgements">
+  <p>
+    Our project page is borrowed from <a href="https://dreambooth.github.io/">DreamBooth</a> and <a href="https://photo-maker.github.io/">PhotoMaker</a>.
+  </p>
+</div>
+
+</body></html>
